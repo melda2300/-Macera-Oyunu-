@@ -5,22 +5,28 @@ public class Player {
     private String name, charName;
     private Inventory inv;
     Scanner scanner = new Scanner(System.in);
+    private Object health;
 
-    public Player(String name) {
-        this.name = name;
+    public Player(String name,Player player) {
+        this.name=name;
+
+    }
+
+    public Player(String charName) {
+        this.charName=charName;
     }
 
     public void selectChar() {
         switch (charMenu()) {
             case 1:
-                initPlayer("samuray", 5, 21, 15,21);
+                initPlayer("samuray", 5, 21, 15, 21);
                 setName("samuray");
                 break;
             case 2:
-                initPlayer("Okcu", 7, 18, 20,18);
+                initPlayer("Okcu", 7, 18, 20, 18);
                 break;
             case 3:
-                initPlayer("Şovalye", 8, 28, 4,28);
+                initPlayer("Şovalye", 8, 28, 4, 28);
 
                 break;
         }
@@ -44,12 +50,15 @@ public class Player {
 
     }
 
-    public void initPlayer(String charName, int damenge, int healthy, int money,int resetHealth) {
+    public void initPlayer(String charName, int damenge, int healthy, int money, int resetHealth) {
         setClassName(charName);
         setDamenge(damenge);
         setHealthy(healthy);
         setMoney(money);
         resetHealth(resetHealth);
+    }
+
+    private void resetHealth(int resetHealth) {
     }
 
     public int getDamenge() {
@@ -101,11 +110,23 @@ public class Player {
     }
 
     public int getResetHealth() {
-        this.resetHealth=healthy;
+        this.resetHealth = healthy;
         return resetHealth;
     }
 
     public void setResetHealth(int resetHealth) {
         this.resetHealth = resetHealth;
+    }
+
+    public Object resetHealth() {
+        return  true;
+    }
+
+    public void setHealth(Object health) {
+        this.health = health;
+    }
+
+    public Object getHealth() {
+        return health;
     }
 }

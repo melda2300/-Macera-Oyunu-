@@ -7,6 +7,10 @@ public abstract class Location {
         this.player = player;
     }
 
+    public Location(Player player) {
+        this.player=player;
+    }
+
 
     public abstract  boolean getLocantion();
 

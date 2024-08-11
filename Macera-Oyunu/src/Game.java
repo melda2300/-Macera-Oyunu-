@@ -35,9 +35,15 @@ public class Game {
             }
             switch (haritaSec) {
                 case 1:
-                    location = new SefaHouse(player);
+                    location = new SefaHouse(player) {
+                        @Override
+                        public boolean getLocantion() {
+                            return false;
+                        }
+                    };
                     break;
-                case 2:
+
+               /* case 2:
                     location = new Cave(player); // Assuming Cave is another location class
                     break;
                 case 3:
@@ -49,11 +55,22 @@ public class Game {
                 case 5:
                     location = new Store(player); // Assuming Store is another location class for weapons/armor
                     break;
+
+                */
                 default:
-                    location = new SefaHouse(player);
+                    location = new SefaHouse(player) {
+                        @Override
+                        public boolean getLocantion() {
+                            return true;
+                        }
+                    };
                     break;
             }
-            location.getLocation();
+           if (location.onLocantion()){
+               System.out.print("oyun bitti");
+               break;
+           }
+          break;
         }
     }
 }
